@@ -1,0 +1,17 @@
+# Build output
+/build/
+/build-*/
+/cmake-build-*/
+/sdk/
+/examples/quickstart/build/
+/examples/quickstart/quickstart
+/examples/quickstart/quickstart-shared
+
+# `make example` test media
+/video/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

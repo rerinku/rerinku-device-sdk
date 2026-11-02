@@ -1,0 +1,21 @@
+Rerinku Device SDK
+Copyright 2026 Rerinku
+
+This product includes software developed as part of the Rerinku project
+(https://github.com/rerinku/rerinku-device-sdk).
+
+Licensed under the Apache License, Version 2.0. See the LICENSE file for
+the full license text.
+
+This product includes the following third-party software, built from source:
+
+  libjuice   https://github.com/paullouisageneau/libjuice
+             Mozilla Public License 2.0
+  libsrtp    https://github.com/cisco/libsrtp
+             BSD 3-Clause License
+  Mbed TLS   https://github.com/Mbed-TLS/mbedtls
+             Apache License 2.0
+  coreMQTT   https://github.com/FreeRTOS/coreMQTT
+             MIT License
+  cJSON      https://github.com/DaveGamble/cJSON
+             MIT License

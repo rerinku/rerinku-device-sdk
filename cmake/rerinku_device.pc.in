@@ -1,0 +1,10 @@
+prefix=${pcfiledir}/@RERINKU_PC_PREFIX@
+libdir=${prefix}/@CMAKE_INSTALL_LIBDIR@
+includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@
+
+Name: rerinku_device
+Description: Rerinku Device SDK: connects camera firmware to Rerinku View (WHIP + MQTT)
+Version: @PROJECT_VERSION@
+Cflags: -I${includedir}
+Libs: -L${libdir} -lrerinku_device
+Libs.private: -pthread

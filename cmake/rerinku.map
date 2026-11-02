@@ -1,0 +1,9 @@
+/* Export list of librerinku_device.so: the C API (rerinku_*) and nothing else.
+ * The bundled mbedTLS, libjuice, libsrtp, coreMQTT and cJSON stay internal, so
+ * the firmware's own copies of those libraries cannot clash with them. */
+{
+    global:
+        rerinku_*;
+    local:
+        *;
+};

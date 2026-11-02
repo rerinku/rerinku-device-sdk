@@ -1,0 +1,38 @@
+# CMake package of the Rerinku Device SDK.
+#
+#   find_package(rerinku_device 0.5 CONFIG REQUIRED)
+#   target_link_libraries(app PRIVATE rerinku::device)          # librerinku_device.a
+#   target_link_libraries(app PRIVATE rerinku::device_shared)   # librerinku_device.so
+#
+# Point CMake at an unpacked SDK with -DCMAKE_PREFIX_PATH=<sdk dir>.
+
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+find_dependency(Threads)
+
+set_and_check(_rerinku_device_includedir "@PACKAGE_CMAKE_INSTALL_INCLUDEDIR@")
+set_and_check(_rerinku_device_libdir "@PACKAGE_CMAKE_INSTALL_LIBDIR@")
+
+# The archive holds every dependency, so it only needs the C library and pthreads.
+if(NOT TARGET rerinku::device AND EXISTS "${_rerinku_device_libdir}/librerinku_device.a")
+    add_library(rerinku::device STATIC IMPORTED)
+    set_target_properties(rerinku::device PROPERTIES
+        IMPORTED_LOCATION "${_rerinku_device_libdir}/librerinku_device.a"
+        IMPORTED_LINK_INTERFACE_LANGUAGES "C"
+        INTERFACE_INCLUDE_DIRECTORIES "${_rerinku_device_includedir}"
+        INTERFACE_LINK_LIBRARIES "Threads::Threads")
+endif()
+
+if(NOT TARGET rerinku::device_shared
+   AND EXISTS "${_rerinku_device_libdir}/librerinku_device.so.@RERINKU_SOVERSION@")
+    add_library(rerinku::device_shared SHARED IMPORTED)
+    set_target_properties(rerinku::device_shared PROPERTIES
+        IMPORTED_LOCATION "${_rerinku_device_libdir}/librerinku_device.so.@RERINKU_SOVERSION@"
+        IMPORTED_SONAME "librerinku_device.so.@RERINKU_SOVERSION@"
+        INTERFACE_INCLUDE_DIRECTORIES "${_rerinku_device_includedir}")
+endif()
+
+unset(_rerinku_device_includedir)
+unset(_rerinku_device_libdir)
+check_required_components(rerinku_device)
