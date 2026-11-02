@@ -1,6 +1,6 @@
 # Rerinku Device SDK for C
 
-English · [简体中文](README.zh-CN.md)
+English · [简体中文](README.zh-CN.md) · [日本語](README.ja.md)
 
 Connects a camera's firmware to [Rerinku View](https://github.com/rerinku/rerinku-view),
 a self-hosted NVR. The device registers with Rerinku View (the "platform" below),

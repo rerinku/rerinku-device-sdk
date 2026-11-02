@@ -1,6 +1,6 @@
 # Rerinku Device SDK for C
 
-[English](README.md) · 简体中文
+[English](README.md) · 简体中文 · [日本語](README.ja.md)
 
 把摄像头固件接入 [Rerinku View](https://github.com/rerinku/rerinku-view)(一个自托管的 NVR)。设备向 Rerinku View(下文称「平台」)注册,通过 MQTT 保持可接收命令的状态,并在有人观看或录像时,通过 WebRTC(WHIP)推送**硬件编码器的输出**。SDK 不负责采集和编码,编码好的帧由固件交给它。
 
